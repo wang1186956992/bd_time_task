@@ -1,7 +1,6 @@
 package com.bidanet.bdcms.plugin.timeTask.service.impl;
 
 import com.bidanet.bdcms.core.dao.Dao;
-import com.bidanet.bdcms.core.service.Service;
 import com.bidanet.bdcms.core.service.impl.BaseServiceImpl;
 
 import com.bidanet.bdcms.plugin.timeTask.dao.TimeTaskDao;
@@ -53,4 +52,8 @@ public class TimeTaskServiceImpl extends BaseServiceImpl<TimeTaskBean> implement
         timeTaskBean.setError(msg);
         dao.update(timeTaskBean);
     }
+
+
+
+
 }

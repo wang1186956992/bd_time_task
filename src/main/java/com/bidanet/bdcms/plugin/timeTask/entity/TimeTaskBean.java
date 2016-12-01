@@ -1,11 +1,9 @@
 package com.bidanet.bdcms.plugin.timeTask.entity;
 
 import com.bidanet.bdcms.plugin.timeTask.entity.status.TaskStatus;
+import org.hibernate.annotations.Type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * 定时任务实体
@@ -34,8 +32,17 @@ public class TimeTaskBean {
      * 真正执行时间
      */
     private Long realExecTime;
+    /**
+     * 创建任务的时间
+     */
+    private Long createTime;
+
     private TaskStatus status;
     private String error;
+    /**
+     * 创建说明
+     */
+    private String createInfo;
 
     @Id
     public Long getId() {
@@ -64,6 +71,8 @@ public class TimeTaskBean {
         this.taskName = taskName;
     }
 
+    @Column(name = "params" )
+    @Type(type = "text")
     public String getParams() {
         return params;
     }
@@ -94,6 +103,7 @@ public class TimeTaskBean {
         return status;
     }
     @Column(name = "status")
+    @Enumerated(EnumType.ORDINAL)
     public void setStatus(TaskStatus status) {
         this.status = status;
     }
@@ -104,5 +114,24 @@ public class TimeTaskBean {
 
     public void setError(String error) {
         this.error = error;
+    }
+
+    @Column(name = "create_time")
+    public Long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Long createTime) {
+        this.createTime = createTime;
+    }
+
+    @Column(name = "create_info")
+    @Type(type = "text")
+    public String getCreateInfo() {
+        return createInfo;
+    }
+
+    public void setCreateInfo(String createInfo) {
+        this.createInfo = createInfo;
     }
 }
