@@ -29,7 +29,8 @@ public class TimeTaskBuilder {
     }
     public static TimeTaskBuilder create(TimeTaskBean timeTaskBean){
         TimeTaskBuilder builder = new TimeTaskBuilder(timeTaskBean.getTaskCode(),timeTaskBean.getTaskName());
-
+        builder.addParams(JSON.parseObject(timeTaskBean.getParams()));
+        builder.createInfo("create from id="+timeTaskBean.getId());
         return builder;
     }
 
