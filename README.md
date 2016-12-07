@@ -9,6 +9,8 @@
 ```
 
 ```xml
+
+
     <dependency>
   	    <groupId>com.github.xuejike</groupId>
   	    <artifactId>bd_time_task</artifactId>
@@ -19,6 +21,15 @@
 
 ##2.配置
 ```xml
+<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="taskTrigger" />
+            </list>
+        </property>
+
+    </bean>
+    
   <bean id="taskTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
         <property name="jobDetail" ref="taskJobDetail"/>
         <!--定义执行时间-->

@@ -30,7 +30,7 @@ public class TimeTaskServiceImpl extends BaseServiceImpl<TimeTaskBean> implement
     @Override
     public List<TimeTaskBean> getNoExecTimeTask(int pageNo, int pageSize){
         long time = new Date().getTime();
-        List<TimeTaskBean> list = dao.findByHqlPage("select * from TimeTaskBean where execTime < ? and status = ?", pageNo, pageSize, time, TaskStatus.wait);
+        List<TimeTaskBean> list = dao.findByHqlPage("from TimeTaskBean where execTime < ? and status = ?", pageNo, pageSize, time, TaskStatus.wait);
 
         return list;
 
