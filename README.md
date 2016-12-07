@@ -14,7 +14,7 @@
     <dependency>
   	    <groupId>com.github.xuejike</groupId>
   	    <artifactId>bd_time_task</artifactId>
-  	    <version>v0.1-release</version>
+  	    <version>v0.1.1</version>
   	</dependency>
 ```
 
