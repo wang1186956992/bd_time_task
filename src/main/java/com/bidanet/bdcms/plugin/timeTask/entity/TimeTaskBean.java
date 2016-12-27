@@ -45,6 +45,7 @@ public class TimeTaskBean {
     private String createInfo;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
